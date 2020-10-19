@@ -7,7 +7,7 @@
 let principal = 200000;
 let interestRate = 0.05;
 let years = 30;
-let name = 'Jenni'
+const name = 'Jenni'
 
 
 
@@ -17,8 +17,8 @@ let name = 'Jenni'
 (1) Create a variable called `monthlyInterestRate` and give it the value of interest rate divided by 12. 
 (2) Create another variable called `periods` and give it the value of years*12.
 */
-var monthlyInterestRate = interestRate/12;
-var periods = years*12;
+let monthlyInterestRate = interestRate/12;
+let periods = years*12;
 
 
 // 🏡 Task 2: Harder Math
@@ -53,7 +53,7 @@ If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly 
 */
 
 function mortgageCalculator(name) {
-    let n1 = Math.pow(1 + monthlyInterestRate, periods);
+      let n1 = Math.pow(1 + monthlyInterestRate, periods);
     let numerator =  principal * n1 * monthlyInterestRate;
     let denominator = n1 -1;
     let monthlyRate = numerator/denominator;
@@ -91,16 +91,16 @@ Then, add control flow within your function such that IF creditScore is above 74
 
 Hint: To drop an interest rate by 5% you can take monthlyRate and multiply it by 0.95. Similarly, to increase an interest rate by 5% you'd do monthlyRate * 1.05. 
 */
-function mortgageCalculator (name, principal, interestRate, years, creditScore){
-    let monthlyInterestRate = interestRate/12;
-    let periods = years*12
+// function mortgageCalculator (name, principal, interestRate, years, creditScore){
+//     let monthlyInterestRate = interestRate/12;
+//     let periods = years*12
 
-    let n1 = Math.pow (1 + monthlyInterestRate, periods);
-    let numerator = principal*n1*monthlyInterestRate;
-    let denominator = n1-1;
-    let monthlyRate = numerator/denominator;
-    return console.log (`${name}, your monthly rate is ${monthlyRate.toFixed(2)}`)
-}
+//     let n1 = Math.pow (1 + monthlyInterestRate, periods);
+//     let numerator = principal*n1*monthlyInterestRate;
+//     let denominator = n1-1;
+//     let monthlyRate = numerator/denominator;
+//     return console.log (`${name}, your monthly rate is ${monthlyRate.toFixed(2)}`)
+// }
 
 
 
