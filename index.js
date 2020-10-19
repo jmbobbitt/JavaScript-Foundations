@@ -75,7 +75,7 @@ function mortgageCalculator(name) {
     let n =  p * n1 * monthlyInterestRate;
     let denominator = n1 -1;
     let monthlyRate = n/denominator;
-    return console.log (`${name}, your monthly rate is ${monthlyRate.toFixed(2)}`);
+    console.log (`${name}, your monthly rate is ${monthlyRate.toFixed(2)}`);
 }
 }
 
@@ -91,18 +91,33 @@ Then, add control flow within your function such that IF creditScore is above 74
 
 Hint: To drop an interest rate by 5% you can take monthlyRate and multiply it by 0.95. Similarly, to increase an interest rate by 5% you'd do monthlyRate * 1.05. 
 */
-// function mortgageCalculator (name, principal, interestRate, years, creditScore){
-//     let monthlyInterestRate = interestRate/12;
-//     let periods = years*12
-
-//     let n1 = Math.pow (1 + monthlyInterestRate, periods);
-//     let numerator = principal*n1*monthlyInterestRate;
-//     let denominator = n1-1;
-//     let monthlyRate = numerator/denominator;
-//     return console.log (`${name}, your monthly rate is ${monthlyRate.toFixed(2)}`)
-// }
 
 
+ function mortgageCalculator (name, principal, interestRate, years, creditScore){
+    let monthlyInterestRate = interestRate/12;
+    let periods = years*12
+    let n1 = Math.pow (1 + monthlyInterestRate, periods);
+    let numerator = principal*n1*monthlyInterestRate;
+    let denominator = n1-1;
+    let monthlyRate = numerator/denominator;
+
+    if (creditScore > 740) {
+        console.log(monthlyRate.toFixed(2)*0.95);
+       } 
+       else if (creditScore < 660) {
+            console.log(monthlyRate.toFixed(2)*1.05);
+        }
+        else {
+           console.log(monthlyRate.toFixed(2));
+        }
+    console.log (`${name}, with a Credit Score of ${creditScore}, your monthly rate is ${monthlyRate.toFixed(2)}`)
+}
+
+mortgageCalculator ('Jenni', 200000, 0.04, 30, 741)
+
+mortgageCalculator ('Jenni', 200000, 0.04, 30, 659)
+
+mortgageCalculator ('Jenni', 200000, 0.04, 30, 700)
 
 // 🏡 Task 6: Loops
 /* Write a new function called variableInterestRate. This function should be the same as mortgageCalculator, except it should console.log the monthly payment for 10 different interest rates at 0.5% increments plus or minus 2% from the inputted interest rate. Complete these calculations using a for loop.
